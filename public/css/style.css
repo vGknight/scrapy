@@ -1,0 +1,26 @@
+body{
+	background-color: #aab8c3;
+}
+
+p{
+	margin: 10px;
+}
+
+.card{
+
+	margin: 10px;
+}
+#headline{
+	font-weight: bold;
+
+}
+
+.savearticle,.view-notes,.delete-saved-article{
+	margin-top: 70px;
+	width: 170px;
+}
+
+
+.scrapearticle{
+	align-items: center;
+}

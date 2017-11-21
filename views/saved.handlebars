@@ -2,20 +2,29 @@
     <div class="col-12 text-center" id="header">
         <img id="burger-img" src="./assets/img/burger.png">
 
-        <h2 id="head-h2">Scrapy Saved</h2>
+        <h2 id="head-h2">Scrapy Saved Articles</h2>
     </div>
 </div>
 <div class="row">
-    <div class="col-6" id="burgers-uneaten">
+    <div class="col-12" id="articles-saved">
 
-        {{#each article}} {{#unless devoured}}
+        {{#each article}}
         <div class="row">
-            <div class="col-8">
+          <!--   <div class="col-8">
                 <div class="card">
-                    <div class="change-devoured card-body" data-id="{{this.id}}"> 
+                    <div class="card-body" data-id="{{this.id}}"> 
 
                     {{math @index "+" 1}}. {{headline}} </div>
 
+                </div>
+            </div> -->
+               <div class="col-8">
+                <div class="card">
+                    <div class="change-devoured card-body" data-id="{{this.id}}">
+                        <p id="headline"> {{math @index "+" 1}}. {{headline}}</p>
+                        <p id="author">{{author}} {{relDate}}</p>
+                        <p>{{summary}} <a href={ {link}} target="_blank">Read Article</a></p>
+                    </div>
                 </div>
             </div>
 
@@ -30,23 +39,14 @@
                 </button>
             </div>
         </div>
-        {{/unless}} {{/each}}
+      {{/each}}
     </div>
 
-    <div class="col-6" id="burgers-eaten">
-        {{#each burger}} {{#if devoured}}
-        <div class="card">
-            <div class="card-body strikethrough" data-id="{{this.id}}">
-                {{math @index "+" 1}}. {{burgers_name}}
 
-            </div>
-        </div>
-        {{/if}} {{/each}}
-    </div>
 </div>
     <div class="col-4">
     </div>
-    <!-- <a href="https://twitter.com/vGKnight?ref_src=twsrc%5Etfw" class="twitter-follow-button btn-outline-dark" data-show-count="false">Follow @vGKnight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+
 </div>
 
  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,80 +1,40 @@
 <div class="row">
     <div class="col-12 text-center" id="header">
         <img id="burger-img" src="./assets/img/burger.png">
-
-        <h2 id="head-h2">Scrapy Home</h2>
-        
+        <!-- <h2 id="head-h2">Scrapy Home</h2> -->
     </div>
 </div>
 <div class="row">
     <div class="col-12" id="burgers-uneaten">
-
-    {{#if article}}
-
-        {{#each article}}
+        {{#if article}} {{#each article}}
         <div class="row">
             <div class="col-8">
                 <div class="card">
-                    <div class="change-devoured card-body" data-id="{{this.id}}"> 
-
-                    {{math @index "+" 1}}. {{headline}} {{author}} {{relDate}} 
-                    <p>{{summary}}</p>
-                    <!-- <p>{{link}}</p> -->
-                    <a href= {{link}}>{{headline}}</a>
+                    <div class="change-devoured card-body" data-id="{{this.id}}">
+                        <p id="headline"> {{math @index "+" 1}}. {{headline}}</p>
+                        <p id="author">{{author}} {{relDate}}</p>
+                        <p>{{summary}} <a href={{link}} target="_blank">Read Article</a></p>
                     </div>
-
                 </div>
             </div>
-
-            <div class="col-4 center">
+            <div class="col-4 center outer">
                 <button type="button" class="btn btn-outline-dark savearticle" data-id="{{this.id}}">
                     Save Article!
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
-
-        {{else}}
-       {{/each}}
-
-       {{else}}
-
-       hi you have no articles
-          <button type="button" class="btn btn-outline-dark scrapearticle" data-id="{{this.id}}">
-                    Scrape new Articles
-                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-           </button>
-
-       {{/if}}
-    </div>
-
-<!--     <div class="col-6" id="burgers-eaten">
-        {{#each burger}} {{#if devoured}}
-        <div class="card">
-            <div class="card-body strikethrough" data-id="{{this.id}}">
-                {{math @index "+" 1}}. {{burgers_name}}
-
-            </div>
+        {{else}} {{/each}} {{else}}
+        <div>
+            <h2>Scrape the Cleveland Food Scene News!</h2>
+            <button type="button" class="btn btn-outline-dark scrapearticle" data-id="{{this.id}}">
+                Get Yo Scrape On!
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+            </button>
         </div>
-        {{/if}} {{/each}}
-    </div> -->
+        {{/if}}
+    </div>
 </div>
-<!-- <div class="row burger-entry">
-    <div class="col-4">
-    </div>
-    <div class="col-4 text-center">
-
-        <form class="create-form" id="myForm">
-            <div class="form-group">
-
-                <textarea class="form-control" id="burger" name="burgers_name" rows="2" placeholder="Royale with Cheese" required="true" autofocus></textarea>
-                <button class="btn btn-outline-dark" type="submit">Add Burger
-                    <i class="fa fa-plus" aria-hidden="true"></i></button>
-            </div>
-            <p>Enter a Burger which you think is tasty</p>
-        </form>
-    </div> -->
-    <div class="col-4">
-    </div>
-    <!-- <a href="https://twitter.com/vGKnight?ref_src=twsrc%5Etfw" class="twitter-follow-button btn-outline-dark" data-show-count="false">Follow @vGKnight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+<div class="col-4">
+</div>
 </div>
