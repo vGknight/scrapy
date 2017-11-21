@@ -2,7 +2,7 @@
     <div class="col-12 text-center" id="header">
         <img id="burger-img" src="./assets/img/burger.png">
 
-        <h2 id="head-h2">Eat Da burger!</h2>
+        <h2 id="head-h2">Scrapy Saved</h2>
     </div>
 </div>
 <div class="row">
@@ -20,8 +20,12 @@
             </div>
 
             <div class="col-4 center">
-                <button type="button" class="btn btn-outline-dark savearticle" data-id="{{this.id}}">
-                    Save Article!
+                <button type="button" class="btn btn-outline-dark view-notes" data-id="{{this.id}}">
+                    Article Notes
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                </button>
+                  <button type="button" class="btn btn-outline-dark delete-saved-article" data-id="{{this.id}}">
+                    Delete From Saved
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
                 </button>
             </div>
@@ -40,22 +44,40 @@
         {{/if}} {{/each}}
     </div>
 </div>
-<!-- <div class="row burger-entry">
-    <div class="col-4">
-    </div>
-    <div class="col-4 text-center">
-
-        <form class="create-form" id="myForm">
-            <div class="form-group">
-
-                <textarea class="form-control" id="burger" name="burgers_name" rows="2" placeholder="Royale with Cheese" required="true" autofocus></textarea>
-                <button class="btn btn-outline-dark" type="submit">Add Burger
-                    <i class="fa fa-plus" aria-hidden="true"></i></button>
-            </div>
-            <p>Enter a Burger which you think is tasty</p>
-        </form>
-    </div> -->
     <div class="col-4">
     </div>
     <!-- <a href="https://twitter.com/vGKnight?ref_src=twsrc%5Etfw" class="twitter-follow-button btn-outline-dark" data-show-count="false">Follow @vGKnight</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 </div>
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content  login log">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="note-title"></h5>
+                    <button type="button" class="close login log" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="create-form" id="myForm">
+                     <!--    <div class="form-group">
+                            <input type="text" class="form-control" required="true" id="blog-title" placeholder="Title of your blog">
+                        </div> -->
+                        <div class="form-group">
+                            <textarea class="form-control" id="note-content" name="note-content" rows="6" placeholder="New Note" required="true" autofocus></textarea>
+                            <button class="btn btn-outline-dark" id="add-note" type="submit">New Note
+                                <i class="fa fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                  <!--   <form id="frmUploader" enctype="multipart/form-data" action="api/Upload/" method="post">
+                        <input type="file" name="imgUploader" multiple />
+                        <input type="submit" name="submit" id="btnSubmit" value="Upload" />
+                    </form> -->
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- edit modal -->
+
