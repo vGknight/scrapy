@@ -3,22 +3,25 @@
         <img id="burger-img" src="./assets/img/burger.png">
 
         <h2 id="head-h2">Scrapy Home</h2>
-           <button type="button" class="btn btn-outline-dark scrapearticle" data-id="{{this.id}}">
-                    Scrap new Articles
-                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                </button>
+        
     </div>
 </div>
 <div class="row">
-    <div class="col-6" id="burgers-uneaten">
+    <div class="col-12" id="burgers-uneaten">
 
-        {{#each article}} {{#unless devoured}}
+    {{#if article}}
+
+        {{#each article}}
         <div class="row">
             <div class="col-8">
                 <div class="card">
                     <div class="change-devoured card-body" data-id="{{this.id}}"> 
 
-                    {{math @index "+" 1}}. {{headline}} </div>
+                    {{math @index "+" 1}}. {{headline}} {{author}} {{relDate}} 
+                    <p>{{summary}}</p>
+                    <!-- <p>{{link}}</p> -->
+                    <a href= {{link}}>Link to Article</a>
+                    </div>
 
                 </div>
             </div>
@@ -30,10 +33,22 @@
                 </button>
             </div>
         </div>
-        {{/unless}} {{/each}}
+
+        {{else}}
+       {{/each}}
+
+       {{else}}
+
+       hi you have no articles
+          <button type="button" class="btn btn-outline-dark scrapearticle" data-id="{{this.id}}">
+                    Scrape new Articles
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+           </button>
+
+       {{/if}}
     </div>
 
-    <div class="col-6" id="burgers-eaten">
+<!--     <div class="col-6" id="burgers-eaten">
         {{#each burger}} {{#if devoured}}
         <div class="card">
             <div class="card-body strikethrough" data-id="{{this.id}}">
@@ -42,7 +57,7 @@
             </div>
         </div>
         {{/if}} {{/each}}
-    </div>
+    </div> -->
 </div>
 <!-- <div class="row burger-entry">
     <div class="col-4">
